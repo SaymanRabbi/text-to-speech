@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileText,faMusic,faTimes,faTrash,faLayerGroup} from '@fortawesome/free-solid-svg-icons';
 const TextArea = () => {
     const [text,setText] = React.useState(0)
     const [line,setLine] = React.useState(0)
-    console.log(text)
+    const textRef = useRef()
     // get how much character is there in the text area
     // get how much line is there in the text area
     const handleText = (e) => {
@@ -17,6 +17,12 @@ const TextArea = () => {
         // set the line to the state
         setLine(line)
     }
+    // remove all the text from the text area
+    const handleClearText = () => {
+        textRef.current.value = ''
+        setText(0)
+        setLine(0)
+    }
     return (
        <div>
          <div className='border  p-2'>
@@ -25,11 +31,11 @@ const TextArea = () => {
                <div className=' w-10 h-10 rounded-full bg-white flex justify-center items-center'>
                <FontAwesomeIcon icon={faFileText} className=' w-4 h-4'/>
                </div>
-                <textarea onChange={(e)=>handleText(e)} placeholder='Enter your text here to synthesize...' className='px-4 w-full py-1 outline-none shadow-lg min-h-[40px] overflow-y-scroll h-10'></textarea>
+                <textarea ref={textRef} onChange={(e)=>handleText(e)} placeholder='Enter your text here to synthesize...' className='px-4 w-full py-1 outline-none shadow-lg min-h-[40px] overflow-y-scroll h-10'></textarea>
                 <div className='flex gap-5'>
                     <FontAwesomeIcon icon={faMusic} className=' w-4 h-4 cursor-pointer'/>
                     <FontAwesomeIcon icon={faTimes} className=' w-4 h-4 cursor-pointer'/>
-                    <FontAwesomeIcon icon={faTrash} className=' w-4 h-4 cursor-pointer'/>
+                    <FontAwesomeIcon icon={faTrash} className=' w-4 h-4 cursor-pointer' onClick={()=>handleClearText()}/>
                 </div>
             </div>
             <div className='flex justify-center items-center mt-4'>
