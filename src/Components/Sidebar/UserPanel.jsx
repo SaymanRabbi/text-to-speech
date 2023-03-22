@@ -19,7 +19,7 @@ const UserPanel = () => {
         {
             icon: faBoxesPacking,
             title: 'My TTS Projects',
-            link: '/tTSprojects'
+            link: '/ttsProject'
         }
         ,
         {
