@@ -3,7 +3,7 @@ import ContentTopBar from './ContentTopBar';
 
 const Content = () => {
     return (
-        <div className=' bg-white p-10 shadow-md'>
+        <div>
             <ContentTopBar/>
         </div>
     );

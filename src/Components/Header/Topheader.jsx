@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch,faAlignLeft,faBell,faMaximize,faGlobe,faUserPlus} from '@fortawesome/free-solid-svg-icons';
 const Topheader = () => {
     return (
-       <div className=' w-[84%] ml-auto h-20  flex items-center py-2 px-5 shadow-xl'>
+       <div className=' w-[84%] ml-auto h-20  flex items-center py-2 px-5 fixed top-0 bg-white z-50 right-0'>
          <div className=' flex'>
             {/* -----sidebar close on button-------- */}
             <div className='flex items-center justify-center w-12 h-12  cursor-pointer'>
