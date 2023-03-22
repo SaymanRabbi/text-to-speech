@@ -2,6 +2,21 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileText,faMusic,faTimes,faTrash,faLayerGroup} from '@fortawesome/free-solid-svg-icons';
 const TextArea = () => {
+    const [text,setText] = React.useState(0)
+    const [line,setLine] = React.useState(0)
+    console.log(text)
+    // get how much character is there in the text area
+    // get how much line is there in the text area
+    const handleText = (e) => {
+        // get character and line from the text area
+        const {value} = e.target
+        // set the character and line to the state
+        setText(value.length)
+        // get the line from the text area
+        const line = value.split('\n').length
+        // set the line to the state
+        setLine(line)
+    }
     return (
        <div>
          <div className='border  p-2'>
@@ -10,7 +25,7 @@ const TextArea = () => {
                <div className=' w-10 h-10 rounded-full bg-white flex justify-center items-center'>
                <FontAwesomeIcon icon={faFileText} className=' w-4 h-4'/>
                </div>
-                <textarea placeholder='Enter your text here to synthesize...' className='px-4 w-full py-1 outline-none shadow-lg min-h-[40px] overflow-y-scroll h-10'></textarea>
+                <textarea onChange={(e)=>handleText(e)} placeholder='Enter your text here to synthesize...' className='px-4 w-full py-1 outline-none shadow-lg min-h-[40px] overflow-y-scroll h-10'></textarea>
                 <div className='flex gap-5'>
                     <FontAwesomeIcon icon={faMusic} className=' w-4 h-4 cursor-pointer'/>
                     <FontAwesomeIcon icon={faTimes} className=' w-4 h-4 cursor-pointer'/>
@@ -25,8 +40,8 @@ const TextArea = () => {
         </div >
         <div className=' flex justify-between font-thin text-[12px] text-gray-600'>
             <div>
-            <span className=' cursor-pointer'>0 characters ,</span>
-            <span className=' cursor-pointer'>1 line</span>
+            <span className=' cursor-pointer'>{text} characters ,</span>
+            <span className=' cursor-pointer'>{line} Line</span>
             </div>
             <div className='flex gap-2'>
                 <span className=' cursor-pointer'>Delete All Line</span>
@@ -36,7 +51,8 @@ const TextArea = () => {
         </div>
         </div>
         <div className='flex justify-center items-center py-5'>
-            <button className='p-2 text-blue-500 font-bold rounded-md shadow-blue-500 hover:bg-blue-500 hover:text-white' style={{border:'1px solid #3B82F6'}}>
+            <button className='p-2 text-blue-500 font-bold rounded-md shadow-blue-500 hover:bg-blue-500 hover:text-white' style={{border:'1px solid #3B82F6'}}
+            >
             Synthesize
             </button>
         </div>

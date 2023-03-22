@@ -9,42 +9,42 @@ const UserPanel = () => {
         {
             icon: faWandMagicSparkles,
             title: 'Text To Speech',
-            link: '/text-To-speech'
+            link: '/'
         },
         {
             icon: faMusic,
             title: 'My TTS Audio Results',
-            link: '/audio-results'
+            link: '/audioresults'
         },
         {
             icon: faBoxesPacking,
             title: 'My TTS Projects',
-            link: '/tTS-projects'
+            link: '/tTSprojects'
         }
         ,
         {
             icon: faPhotoFilm,
             title: 'Sound Studio',
-            link: '/sound-studio'
+            link: '/soundstudio'
         },{
             icon: faCloud,
             title: 'All TTS Voices',
-            link: '/all-tts-voices'
+            link: '/all-ttsvoices'
         },{
             icon: faUser,
             title: ' My Profile Settings',
-            link: '/profile-settings'
+            link: '/profilesettings'
         }
         
         ,
         {
             icon: faSackDollar,
             title: 'My Referrals',
-            link: '/my-referrals'
+            link: '/myreferrals'
         },{
             icon: faQuestion,
             title: 'Support Request ',
-            link: '/support-request'
+            link: '/supportrequest'
         },{
             icon: faExclamation,
             title: 'Notifications ',

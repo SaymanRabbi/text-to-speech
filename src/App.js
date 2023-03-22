@@ -4,7 +4,9 @@ import './App.css';
 import Header from './Components/Header/Header';
 import Sidebar from './Components/Sidebar/Sidebar';
 import TextToSpeech from './Pages/TextToSpeech/TextToSpeech';
-
+import { Routes,Route } from 'react-router-dom';
+import OutletContainer from './Components/Outlet/OutletContainer';
+import AudioResult from './Pages/TextToSpeech/AudioResult/AudioResult';
 export const SideBarContext = createContext();
 function App() {
 //  createContext is a hook that returns a context object
@@ -16,7 +18,12 @@ const [sideBar, setSideBar] = useState(false);
      <SideBarContext.Provider value={{sideBar, setSideBar}}>
      <Header />
       <Sidebar />
-      <TextToSpeech/>
+      <Routes>
+        <Route component={<OutletContainer/>} >
+          <Route path="/" element={<TextToSpeech/>} />
+          <Route path='/audioresults' element={<AudioResult/>} />
+        </Route>
+      </Routes>
       </SideBarContext.Provider>
     </div>
   );
