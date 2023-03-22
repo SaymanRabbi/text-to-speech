@@ -6,7 +6,7 @@ import Sidebar from './Components/Sidebar/Sidebar';
 import TextToSpeech from './Pages/TextToSpeech/TextToSpeech';
 import { Routes,Route } from 'react-router-dom';
 import OutletContainer from './Components/Outlet/OutletContainer';
-import AudioResult from './Pages/TextToSpeech/AudioResult/AudioResult';
+import AudioResult from './Pages/AudioResult/AudioResult';
 export const SideBarContext = createContext();
 function App() {
 //  createContext is a hook that returns a context object
