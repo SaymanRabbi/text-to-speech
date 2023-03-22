@@ -1,10 +1,10 @@
 import React from 'react';
 import './Header.css';
 import Topheader from './Topheader';
-const Header = () => {
+const Header = ({setIsSidebarOpen}) => {
     return (
         <div>
-            <Topheader/>
+            <Topheader setIsSidebarOpen={setIsSidebarOpen}/>
         </div>
     );
 };

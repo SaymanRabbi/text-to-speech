@@ -1,81 +1,75 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWandMagicSparkles,faMusic,faBoxesPacking,faPhotoFilm,faCloud,faUser,faQuestion,faExclamation,faSackDollar} from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from 'react-router-dom';
+import { SideBarContext } from '../../App';
 const UserPanel = () => {
+    const sidebar = useContext(SideBarContext)
+    const data = [
+        {
+            icon: faWandMagicSparkles,
+            title: 'Text To Speech',
+            link: '/text-To-speech'
+        },
+        {
+            icon: faMusic,
+            title: 'My TTS Audio Results',
+            link: '/audio-results'
+        },
+        {
+            icon: faBoxesPacking,
+            title: 'My TTS Projects',
+            link: '/tTS-projects'
+        }
+        ,
+        {
+            icon: faPhotoFilm,
+            title: 'Sound Studio',
+            link: '/sound-studio'
+        },{
+            icon: faCloud,
+            title: 'All TTS Voices',
+            link: '/all-tts-voices'
+        },{
+            icon: faUser,
+            title: ' My Profile Settings',
+            link: '/profile-settings'
+        }
+        
+        ,
+        {
+            icon: faSackDollar,
+            title: 'My Referrals',
+            link: '/my-referrals'
+        },{
+            icon: faQuestion,
+            title: 'Support Request ',
+            link: '/support-request'
+        },{
+            icon: faExclamation,
+            title: 'Notifications ',
+            link: '/notifications'
+        }
+    ]
+
     return (
         <div className='mt-6'>
            
-           <li className='list-none p-4'>User Panel</li>
-          
-       
-            <li className='list-none '>
-                <a href="" className='px-6 py-4 bg-blue-500 w-full block text-white rounded-r-full  hover:px-7'>
-                   
-                   <FontAwesomeIcon icon={faWandMagicSparkles} className=' w-4 h-4 mr-2'/>
-                    Text To Speech
-                
-                </a>
-            </li>
-            <li className='list-none '>
-                <a href="" className='px-6 py-4  w-full block rounded-r-full  hover:px-7 text-black hover:bg-gray-200'>
-                   
-                   <FontAwesomeIcon icon={faMusic} className=' w-4 h-4 mr-2'/>
-                   My TTS Audio Results
-                
-                </a>
-            </li>
-            <li className='list-none '>
-                <a href="" className='hover:bg-gray-200 px-6 py-4  w-full block  rounded-r-full  hover:px-7 text-black'>
-                   
-                   <FontAwesomeIcon icon={faBoxesPacking} className=' w-4 h-4 mr-2'/>
-                   My TTS Projects
-                
-                </a>
-            </li>
-            <li className='list-none '>
-                <a href="" className='hover:bg-gray-200 px-6 py-4  w-full block text-black rounded-r-full  hover:px-7'>
-                   
-                   <FontAwesomeIcon icon={faPhotoFilm} className=' w-4 h-4 mr-2'/>
-                   Sound Studio                
-                </a>
-            </li>
-            <li className='list-none '>
-                <a href="" className='hover:bg-gray-200 px-6 py-4  w-full block text-black rounded-r-full  hover:px-7'>
-                   
-                   <FontAwesomeIcon icon={faCloud} className=' w-4 h-4 mr-2'/>
-                   All TTS Voices                
-                </a>
-            </li>
-            <li className='list-none '>
-                <a href="" className='hover:bg-gray-200 px-6 py-4  w-full block text-black rounded-r-full  hover:px-7'>
-                   
-                   <FontAwesomeIcon icon={faUser} className=' w-4 h-4 mr-2'/>
-                   My Profile Settings
-                
-                </a>
-            </li>
-            <li className='list-none '>
-                <a href="" className='hover:bg-gray-200 px-6 py-4  w-full block text-black rounded-r-full  hover:px-7'>
-                   
-                   <FontAwesomeIcon icon={faSackDollar} className=' w-4 h-4 mr-2'/>
-                   My Referrals                </a>
-            </li>
-            <li className='list-none '>
-                <a href="" className='hover:bg-gray-200 px-6 py-4  w-full block text-black rounded-r-full  hover:px-7'>
-                   
-                   <FontAwesomeIcon icon={faQuestion} className=' w-4 h-4 mr-2'/>
-                   Support Request                
-                </a>
-            </li>
-            <li className='list-none '>
-                <a href="" className='hover:bg-gray-200 px-6 py-4  w-full block text-black rounded-r-full  hover:px-7'>
-                   
-                   <FontAwesomeIcon icon={faExclamation} className=' w-4 h-4 mr-2'/>
-                   Notifications                
-                </a>
-            </li>
-            
-            
+           {
+                sidebar.sideBar ? null : <li className='list-none p-4'>User Panel</li>
+           }
+          {
+                data.map((item,index) => (
+                    <li className='list-none ' key={index} >
+                        <NavLink to={item.link} 
+                        className={({ isActive }) => isActive ? 'px-6 py-4  w-full block rounded-r-full  hover:px-7 text-white bg-blue-600': 'px-6 py-4  w-full block rounded-r-full  hover:px-7 text-black hover:bg-gray-200'}
+                        >
+                            <FontAwesomeIcon icon={item.icon} className=' w-4 h-4 mr-2'/>
+                            {sidebar.sideBar ?  null: item.title}
+                        </NavLink>
+                    </li>
+                ))
+          }     
         </div>
     );
 };
