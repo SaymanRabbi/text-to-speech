@@ -10,6 +10,10 @@ import AudioResult from './Pages/AudioResult/AudioResult';
 import TtsProject from './Pages/TtsProject/TtsProject';
 import SoundStudio from './Pages/SoundStudio/SoundStudio';
 import AllTssVoices from './Pages/AllTssVoices/AllTssVoices';
+import ProfileSetting from './Pages/ProfileSetting/ProfileSetting';
+import MyReferrals from './Pages/MyReferrals/MyReferrals';
+import Support from './Pages/Support/Support';
+import Notification from './Pages/Notification/Notification';
 export const SideBarContext = createContext();
 function App() {
 //  createContext is a hook that returns a context object
@@ -43,6 +47,10 @@ useEffect(() => {
           <Route path='/ttsProject' element={<TtsProject/>} />
           <Route path='/soundstudio' element={<SoundStudio/>} />
           <Route path='/allttsvoices' element={<AllTssVoices/>} />
+          <Route path='/profilesettings' element={<ProfileSetting/>} />
+          <Route path="/myreferrals" element={<MyReferrals/>} />
+          <Route path='/support' element={<Support/>} />
+          <Route path='/notification' element={<Notification/>} />
         </Route>
       </Routes>
       </SideBarContext.Provider>

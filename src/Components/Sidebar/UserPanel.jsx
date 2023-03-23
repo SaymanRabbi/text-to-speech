@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faWandMagicSparkles,faMusic,faBoxesPacking,faPhotoFilm,faCloud,faUser,faQuestion,faExclamation,faSackDollar} from '@fortawesome/free-solid-svg-icons';
+import { faWandMagicSparkles,faMusic,faBoxesPacking,faPhotoFilm,faCloud,faUser,faQuestion,faSackDollar, faBell} from '@fortawesome/free-solid-svg-icons';
 import { NavLink } from 'react-router-dom';
 import { SideBarContext } from '../../App';
 const UserPanel = () => {
@@ -44,11 +44,11 @@ const UserPanel = () => {
         },{
             icon: faQuestion,
             title: 'Support Request ',
-            link: '/supportrequest'
+            link: '/support'
         },{
-            icon: faExclamation,
+            icon: faBell,
             title: 'Notifications ',
-            link: '/notifications'
+            link: '/notification'
         }
     ]
     // sidebar.sideBar&&sidebar.screenSize.dynamicWidth<640 ?'w-[30%] absolute top-0 z-40':'w-[5%]'
