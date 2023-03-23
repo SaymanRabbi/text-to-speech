@@ -29,7 +29,7 @@ const UserPanel = () => {
         },{
             icon: faCloud,
             title: 'All TTS Voices',
-            link: '/all-ttsvoices'
+            link: '/allttsvoices'
         },{
             icon: faUser,
             title: ' My Profile Settings',
@@ -51,9 +51,9 @@ const UserPanel = () => {
             link: '/notifications'
         }
     ]
-
+    // sidebar.sideBar&&sidebar.screenSize.dynamicWidth<640 ?'w-[30%] absolute top-0 z-40':'w-[5%]'
     return (
-        <div className='mt-6'>
+        <div className={`mt-6   ${sidebar.sideBar&&sidebar.screenSize.dynamicWidth<640?'block':'sm:block hidden'}`}>
            
            {
                 sidebar.sideBar ? null : <li className='list-none p-4'>User Panel</li>
@@ -62,10 +62,10 @@ const UserPanel = () => {
                 data.map((item,index) => (
                     <li className='list-none ' key={index} >
                         <NavLink to={item.link} 
-                        className={({ isActive }) => isActive ? 'px-6 py-4  w-full block rounded-r-full  hover:px-7 text-white bg-blue-600': 'px-6 py-4  w-full block rounded-r-full  hover:px-7 text-black hover:bg-gray-200'}
+                        className={({ isActive }) => isActive ? 'lg:px-6 lg:py-4 px-2 py-4  w-full block rounded-r-full   lg:hover:px-7 text-white bg-blue-600': 'lg:px-6 lg:py-4 px-2 py-4  w-full block rounded-r-full  lg:hover:px-7 text-black hover:bg-gray-200'}
                         >
                             <FontAwesomeIcon icon={item.icon} className=' w-4 h-4 mr-2'/>
-                            {sidebar.sideBar ?  null: item.title}
+                            {sidebar.sideBar &&sidebar.screenSize.dynamicWidth>640?  null: item.title}
                         </NavLink>
                     </li>
                 ))

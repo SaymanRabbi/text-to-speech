@@ -17,7 +17,7 @@ const Topheader = () => {
         }
     }
     return (
-       <div className={`${sidebar.sideBar?'w-[95%]':'w-[84%]'}  ml-auto h-20  flex items-center py-2 px-5 fixed top-0 bg-white z-50 right-0 shadow-md`}>
+       <div className={`${sidebar.sideBar?sidebar.sideBar&&sidebar.screenSize.dynamicWidth<640 ?'w-[70%] top-0 z-40':'w-[95%]':'lg:w-[84%] sm:w-[70%] w-full'}  ml-auto h-20  flex items-center py-2 px-5 fixed top-0 bg-white z-50 right-0 shadow-md`}>
          <div className=' flex'>
             {/* -----sidebar close on button-------- */}
             <div className='flex items-center justify-center w-12 h-12  cursor-pointer'

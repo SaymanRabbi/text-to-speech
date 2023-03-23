@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVolumeHigh,faHistory} from '@fortawesome/free-solid-svg-icons';
 const ContentTopBar = () => {
     return (
-        <div className=' flex gap-5'>
+        <div className=' grid gap-5 lg:grid-cols-4 md:grid-cols-2 grid-cols-1'>
             <div className=' shadow-lg flex justify-center items-center bg-[#FFFFFF] h-14 w-full'>
                 {/* ------Language Select dropdown-------- */}
                         <select className='rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 outline-none'>

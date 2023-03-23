@@ -2,7 +2,7 @@ import React from 'react';
 
 const DubboleButton = () => {
     return (
-        <div className='flex gap-6 py-5'>
+        <div className='grid md:grid-cols-2 grid-cols-1 gap-6 py-5'>
             <div className=' w-full h-14 text-center   flex justify-center items-center text-black font-bold hover:bg-blue-600 cursor-pointer hover:text-white shadow-lg rounded-md'>
                   Replace
             </div>

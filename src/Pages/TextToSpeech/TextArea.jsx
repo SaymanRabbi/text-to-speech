@@ -26,7 +26,7 @@ const TextArea = () => {
     return (
        <div>
          <div className='border  p-2'>
-            <div className='  min-h-[300px] bg-[#f5f9fc] py-3'>
+            <div className='min-h-[300px] bg-[#f5f9fc] py-3'>
             <div className='flex px-5 gap-6 justify-center items-center'>
                <div className=' w-10 h-10 rounded-full bg-white flex justify-center items-center'>
                <FontAwesomeIcon icon={faFileText} className=' w-4 h-4'/>
