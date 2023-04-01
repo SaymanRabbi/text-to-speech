@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faPlus,faGlobe,faMicrophone,faGenderless,faMicrophoneLines,faTextSlash,faChartSimple,faProjectDiagram} from '@fortawesome/free-solid-svg-icons';
 import { SideBarContext } from '../../App';
+import img from '../../img/no-result.png'
 const MainContentMenu = () => {
     const sidebar = useContext(SideBarContext)
     const data =[
@@ -57,7 +58,7 @@ const MainContentMenu = () => {
         </div>
         <div className=' py-3 flex justify-center items-center'>
            <div className=' flex flex-col items-center'>
-            <img src="https://tts.verbatik.com/img/files/no-result.png" alt="" />
+            <img src={img} alt="" />
             <h1 className=' text-xs'>No synthesized text results yet</h1>
            </div>
         </div>
