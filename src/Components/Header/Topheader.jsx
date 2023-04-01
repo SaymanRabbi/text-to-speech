@@ -6,6 +6,21 @@ import { SideBarContext } from '../../App';
 import { useRef } from 'react';
 import useClickoutside from '../../helpers/useClickOutSide';
 const Topheader = () => {
+    //  sidebar rigt side icon
+    const rightSideIcon = [
+        {
+            icon:faBell,
+        },
+        {
+            icon:faMaximize,
+        },
+        {
+            icon:faGlobe,
+        }
+        ,{
+            icon:faUserPlus,
+        }
+    ]
     // get text from input
     const [text,setText] = useState('')
     // get text from input
@@ -51,29 +66,17 @@ const Topheader = () => {
             {/* ------search bar icon---------------- */}
          </div>
          <div className=' ml-auto flex gap-1 justify-center items-center'>
-            {/* ------notification icon------ */}
-            <div className='flex items-center justify-center w-12 h-12  cursor-pointer'>
-                <FontAwesomeIcon icon={faBell} />
-            </div>
-            {/* ------notification icon------ */}
-            {/* ------display large and minimize--------- */}
-            <div className='flex items-center justify-center w-12 h-12  cursor-pointer'>
+            {/* --------map right side header icon------------- */}
+            {
+                rightSideIcon.map((item,index)=>
+                <div className='flex items-center justify-center w-12 h-12  cursor-pointer' key={index}>
                 {
-                    document.fullscreenElement? <FontAwesomeIcon icon={faCompress} onClick={f11}/> : <FontAwesomeIcon icon={faMaximize} onClick={f11}/>
+                    item.icon===faMaximize? document.fullscreenElement? <FontAwesomeIcon icon={faCompress} onClick={f11}/> : <FontAwesomeIcon icon={faMaximize} onClick={f11}/> : <FontAwesomeIcon icon={item.icon} />
                 }
             </div>
-                    
-            {/* ------display large and minimize--------- */}
-            {/* -------language select----- */}
-            <div className='flex items-center justify-center w-12 h-12  cursor-pointer'>
-                <FontAwesomeIcon icon={faGlobe} />
-            </div>
-            {/* -------language select----- */}
-            {/* --------avatar---------- */}
-            <div className='flex items-center justify-center w-12 h-12  cursor-pointer rounded-full bg-slate-100'>
-                <FontAwesomeIcon icon={faUserPlus}  className=' w-8 h-8 rounded-full'/>
-            </div>
-            {/* --------avatar---------- */}
+                )
+            }
+            {/* --------map right side header icon------------- */}
          </div>
        </div>
 

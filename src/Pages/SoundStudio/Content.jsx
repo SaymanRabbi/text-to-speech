@@ -83,7 +83,7 @@ const Content = () => {
                 <label className=' font-thin'>
                 Set Result Title
                 </label>
-                <input type="text" className='p-3 w-full border outline-none hover:border-blue-500'/>
+                <input type="text" className='p-3 w-full border-blue-500 outline-none border-2 '/>
                 </div>
             </div>
             <div className=' text-center'>
