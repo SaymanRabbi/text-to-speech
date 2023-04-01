@@ -5,7 +5,13 @@ import { faSearch,faAlignLeft,faBell,faMaximize,faGlobe,faUserPlus,faAlignRight,
 import { SideBarContext } from '../../App';
 import { useRef } from 'react';
 import useClickoutside from '../../helpers/useClickOutSide';
+import ProfileMain from '../Profile/ProfileMain';
 const Topheader = () => {
+    // ----show profile menu
+    const [showProfileMenu, setShowProfileMenu] = useState(false)
+    const profileMenuRef = useRef(null)
+    // ----show profile menu
+    useClickoutside(profileMenuRef,()=>setShowProfileMenu(false))
     //  sidebar rigt side icon
     const rightSideIcon = [
         {
@@ -65,18 +71,25 @@ const Topheader = () => {
         
             {/* ------search bar icon---------------- */}
          </div>
-         <div className=' ml-auto flex gap-1 justify-center items-center'>
+         <div className=' ml-auto flex gap-1 justify-center items-center relative'>
             {/* --------map right side header icon------------- */}
             {
                 rightSideIcon.map((item,index)=>
-                <div className='flex items-center justify-center w-12 h-12  cursor-pointer' key={index}>
+                <div className='flex items-center justify-center w-12 h-12  cursor-pointer ' key={index}>
                 {
-                    item.icon===faMaximize? document.fullscreenElement? <FontAwesomeIcon icon={faCompress} onClick={f11}/> : <FontAwesomeIcon icon={faMaximize} onClick={f11}/> : <FontAwesomeIcon icon={item.icon} />
+                    item.icon===faMaximize? document.fullscreenElement? <FontAwesomeIcon icon={faCompress} onClick={f11}/> : <FontAwesomeIcon icon={faMaximize} onClick={f11}/> :item.icon===faUserPlus ?<FontAwesomeIcon icon={item?.icon} onClick={()=>setShowProfileMenu(!showProfileMenu)} ref={profileMenuRef}/>: <FontAwesomeIcon icon={item.icon} />
                 }
             </div>
                 )
             }
             {/* --------map right side header icon------------- */}
+            {/* --------profile menu------------- */}
+            {
+                showProfileMenu?<div className='absolute top-16 right-0 w-42 h-100 bg-white shadow-md '>
+                    <ProfileMain/>
+                </div>:null
+            }
+            {/* --------profile menu------------- */}
          </div>
        </div>
 
