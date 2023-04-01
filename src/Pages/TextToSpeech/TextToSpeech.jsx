@@ -1,6 +1,7 @@
 import { faWandSparkles } from '@fortawesome/free-solid-svg-icons';
 import React, { useContext } from 'react';
 import { SideBarContext } from '../../App';
+import CopyRight from '../AudioResult/CopyRight';
 import Heading from '../Heading';
 import Content from './Content';
 import DubboleButton from './DubboleButton';
@@ -20,6 +21,7 @@ const TextToSpeech = () => {
             <DubboleButton/>
             <TextArea/>
             </div>
+            <CopyRight/>
         </div>
     );
 };
