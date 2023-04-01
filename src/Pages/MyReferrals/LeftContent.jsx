@@ -53,6 +53,30 @@ const LeftContent = () => {
                     </div>
                 </div>
             </div>
+            <div className='flex gap-8 justify-between mt-10'>
+              <div>
+                <div>
+                    <h2 className=' font-bold'>My Earned Commissions</h2>
+                     <p className='mt-2'>$0.00</p>
+                </div>
+                <div className='mt-10'>
+                    <h2 className=' font-bold'>Referral Policy</h2>
+                    <p className='mt-2'>All Successful Purchases</p>
+                </div>
+              </div>
+              <div>
+                <div>
+                    <h2 className=' font-bold'>
+                    My Earned TTS Credits
+                    </h2>
+                    <p className='mt-2'>0</p>
+                </div>
+                <div className=' mt-10'>
+                    <h2 className=' font-bold'>Referral Commission Rate</h2>
+                    <p className='mt-2'>30%</p>
+                </div>
+              </div>
+            </div>
         </div>
     );
 };
