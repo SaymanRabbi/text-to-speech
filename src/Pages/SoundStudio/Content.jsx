@@ -106,7 +106,7 @@ const Content = () => {
             </div>
            </div>
            <div className='flex justify-center mt-8'>
-             <button className='px-8 py-3 hover:bg-black rounded-3xl text-white bg-blue-500 font-bold'>Merge Audio Files</button>
+             <button className='md:px-8 md:py-3 hover:bg-black rounded-3xl text-white bg-blue-500 font-medium px-3 py-2'>Merge Audio Files</button>
            </div>
         </div>
     );
