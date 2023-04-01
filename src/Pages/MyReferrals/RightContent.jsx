@@ -1,12 +1,14 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload,faCheck,faUserCheck } from '@fortawesome/free-solid-svg-icons';
-
+import img1 from '../../img/ref-1.png'
+import img2 from '../../img/ref-2.png'
 const RightContent = () => {
     return (
         <div className=' bg-white p-10 shadow-md rounded-md'>
              <h2 className='font-bold text-center text-2xl'>How It Works</h2>
-             <div className=' grid md:grid-cols-3 gap-6 mt-10 grid-cols-1'>
+             <div className=' relative'>
+             <div className=' grid md:grid-cols-3 gap-2 mt-10 grid-cols-1'>
                <div>
                  <div className='flex flex-col justify-center items-center'>
                      <div className='flex justify-center items-center rounded-full bg-blue-100 w-16 h-16'>
@@ -52,6 +54,9 @@ const RightContent = () => {
                         </div>
                  </div>
                </div>
+             </div>
+              <img src={img1} alt="" className='hidden md:block absolute top-7 left-[20%]' />
+              <img src={img2} alt="" className='hidden md:block absolute top-5 right-[20%]'/>
              </div>
              <div>
              <h2 className='mt-10 font-bold mb-2'>Invite your friends</h2>
