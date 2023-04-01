@@ -8,7 +8,7 @@ const Sidebar = () => {
     // console.log(sidebar.screenSize)
     // console.log()
     return (
-        <div className={`fixed top-0 bottom-0 left-0 ${sidebar.sideBar?sidebar.sideBar&&sidebar.screenSize.dynamicWidth<640 ?'w-[30%] fixed top-0 z-40':'w-[5%]':'lg:w-[16%] sm:w-[30%] w-0'}`}>
+        <div className={`fixed top-0 bottom-0 left-0 overflow-y-scroll scrollbar-thin ${sidebar.sideBar?sidebar.sideBar&&sidebar.screenSize.dynamicWidth<640 ?'w-[30%] fixed top-0 z-40':'w-[5%]':'lg:w-[16%] sm:w-[30%] w-0'}`}>
             <Logo/>
             <hr/>
             <UserPanel/>
