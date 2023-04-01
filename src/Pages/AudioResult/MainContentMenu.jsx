@@ -1,42 +1,54 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUpDown} from '@fortawesome/free-solid-svg-icons';
+import {faPlus,faGlobe,faMicrophone,faGenderless,faMicrophoneLines,faTextSlash,faChartSimple,faProjectDiagram} from '@fortawesome/free-solid-svg-icons';
+import { SideBarContext } from '../../App';
 const MainContentMenu = () => {
+    const sidebar = useContext(SideBarContext)
     const data =[
         {
-            text:"Created On"
+            text:"Created On",
+            icon:faPlus
         },
         {
-            text:'Language'
+            text:'Language',
+            icon:faGlobe
         },
         {
-            text:'Voice'
+            text:'Voice',
+            icon:faMicrophone
         },
         {
-            text:'Gender'
+            text:'Gender',
+            icon:faGenderless
         },
         {
-            text:'Voice Engine'
+            text:'Voice Engine',
+            icon:faMicrophoneLines
         },
         {
-            text:'Format'
+            text:'Format',
+            icon:faTextSlash
         },
         {
-            text:'Chars'
+            text:'Chars',
+            icon:faChartSimple
+
         },{
-            text:'Project Name'
+            text:'Project Name',
+            icon:faProjectDiagram
         }
     ]
     return (
             <div>
         <div className='py-5'>
-           <div className='grid lg:grid-cols-8 md:grid-cols-4 grid-cols-2 gap-2'>
+        {/* sidebar.sideBar&&sidebar.screenSize.dynamicWidth<640 */}
+           <div className={`grid lg:grid-cols-8 md:grid-cols-4 ${ sidebar.sideBar&&sidebar.screenSize.dynamicWidth<640?'grid-cols-1':'grid-cols-2'} gap-2`}>
            {
                 data.map((item,index)=>{
                     return(
-                        <div className='flex items-center gap-1 bg-white  py-3 px-1 rounded cursor-pointer shadow-lg justify-center'>
-                            <FontAwesomeIcon icon={faUpDown} className=' w-4 h-4 font-thin'/>
-                            <span className=' font-bold'>{item.text}</span>
+                        <div className='flex items-center gap-5 bg-white  py-3 px-1 rounded cursor-pointer shadow-lg justify-center'>
+                            <FontAwesomeIcon icon={item?.icon} className=' w-4 h-4'/>
+                            <span className='text-sm'>{item.text}</span>
                         </div>
                     )
                 })

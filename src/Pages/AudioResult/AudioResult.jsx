@@ -14,7 +14,7 @@ const AudioResult = () => {
            <Heading icon={faMusic} tittle={'Synchesized Results Data'} subhedding={'My TTS Audio Results'}/>
            <div className='bg-white p-10 shadow-md rounded-md'>
            <MainContent/>
-           <MainContentMenu/>
+           <MainContentMenu />
            </div>
            <CopyRight/>
         </div>

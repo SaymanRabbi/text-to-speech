@@ -52,7 +52,7 @@ const Subcategory = () => {
                         </select>    
                 {/* ------Language Select dropdown-------- */}
             </div>
-            <div className=' shadow-lg flex justify-center items-center bg-[#FFFFFF] h-14 w-full text-sm px-2'>
+            <div className=' shadow-lg flex justify-center items-center  h-14 w-full text-sm px-2'>
                 {/* ------Language Select dropdown-------- */}
                 <select className='rounded-md  shadow-sm  outline-none h-full w-full p-2.5  block'>
                         <option className=' outline-none'>Pauses</option>
