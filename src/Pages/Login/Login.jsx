@@ -2,7 +2,7 @@ import React from 'react';
 
 import google from '../../img/google.png'
 import apple from '../../img/apple.png'
-import login from '../../img/login.svg'
+import login from '../../img/register.webp'
 import CopyRight from '../AudioResult/CopyRight';
 import { Link } from 'react-router-dom';
 const Login = () => {
@@ -57,7 +57,7 @@ const Login = () => {
             </div>
           </div>
           <div className=' lg:col-span-6 col-span-12 flex justify-center items-center lg:order-2 order-1 p-8'>
-              <img src={login} className='w-full bg-cover h-full'/>
+              <img src={login} className='w-full bg-cover h-[80%]'/>
           </div>
         </div>
        
