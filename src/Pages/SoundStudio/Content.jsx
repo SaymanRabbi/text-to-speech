@@ -40,13 +40,13 @@ const Content = () => {
                     <label className=' font-thin'>
                     Select Backround Music
                     </label>
-                    <div className='gap-3 flex'>
-                    <select className='p-3 shadow-lg'>
+                    <div className='gap-3 grid lg:grid-cols-2 grid-cols-1'>
+                    <select className='p-3 shadow-lg w-full'>
                         <option defaultValue=''>Background Music</option>
                         <option value="saab">Saab</option>
                         <option value="mercedes">Mercedes</option>
                         </select>
-                        <button className='p-3 shadow-lg flex items-center hover:bg-blue-600 hover:text-white text-blue-600'>
+                        <button className='p-3 shadow-lg flex items-center hover:bg-blue-600 hover:text-white text-blue-600 w-12 justify-center'>
                             <FontAwesomeIcon icon={faPlay} className=' w-6 h-6 '/>
                         </button>
                     </div>
