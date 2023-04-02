@@ -50,7 +50,7 @@ const ProfileMain = () => {
             <hr className='my-3'/>
               {
                 data.map((item,index)=>
-                <Link to={item?.link} className='flex gap-2 items-center mb-4 cursor-pointer hover:px-1' key={index}>
+                <Link to={item?.link} className='flex gap-2 items-center mb-4 cursor-pointer hover:px-6 px-5' key={index}>
                    <FontAwesomeIcon icon={item.icon} className=' w-4 h-4'/>
                      <span className='text-sm'>{item.title}</span>
                 </Link>
