@@ -7,9 +7,9 @@ import CopyRight from '../AudioResult/CopyRight';
 import { Link } from 'react-router-dom';
 const Login = () => {
     return (
-       <section className=' bg-[#F9FAFB]'>
-        <div className=' grid grid-cols-12 md:py-24 py-16 md:px-28 px-5 gap-10'>
-          <div className=' lg:col-span-6 col-span-12 px-8 py-20 shadow-lg rounded-md bg-white lg:order-1 order-2'>
+       <section className=' bg-[#F9FAFB] w-full'>
+        <div className=' grid grid-cols-12 md:pt-24 md:pb-8 pt-16 md:px-28 px-5 lg:gap-10'>
+          <div className=' lg:col-span-6 col-span-12 px-8 py-20 shadow-lg rounded-md bg-white lg:order-1 order-2 w-full'>
             <h2 className=' font-bold text-2xl mb-2'>
             Login your Account
             </h2>
@@ -46,17 +46,17 @@ const Login = () => {
             <div className='mt-5 flex gap-3 text-gray-600 items-center justify-between'>
                <div className='flex gap-3 text-gray-600 items-center'>
                <input type="checkbox" className='h-8 p-2'/>
-               <p>Remember Me</p>
+               <p className='text-sm lg:text-base'>Remember Me</p>
                </div>
                <div>
-                 <Link to={'/forgotpass'} className='text-blue-600 font-bold'>Forgot password?</Link>
+                 <Link to={'/forgotpass'} className='text-blue-600 font-bold text-sm lg:text-base'>Forgot password?</Link>
                </div>
             </div>
             <div className='mt-10 h-12 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-700 cursor-pointer flex items-center justify-center'>
                  Login Your Account
             </div>
           </div>
-          <div className=' lg:col-span-6 col-span-12 flex justify-center items-center lg:order-2 order-1 p-8'>
+          <div className=' lg:col-span-6 col-span-12 flex justify-center items-center lg:order-2 order-1 p-8 w-full'>
               <img src={login} className='w-full bg-cover h-[80%]'/>
           </div>
         </div>
