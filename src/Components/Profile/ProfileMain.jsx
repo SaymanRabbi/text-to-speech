@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faDollar,faFolder,faBoxesPacking,faPhotoFilm,faUserEdit,faKey,faArrowUp} from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
 const ProfileMain = () => {
     const data = [
@@ -49,10 +50,10 @@ const ProfileMain = () => {
             <hr className='my-3'/>
               {
                 data.map((item,index)=>
-                <div className='flex gap-2 items-center mb-4 cursor-pointer hover:px-1' key={index}>
+                <Link to={item?.link} className='flex gap-2 items-center mb-4 cursor-pointer hover:px-1' key={index}>
                    <FontAwesomeIcon icon={item.icon} className=' w-4 h-4'/>
                      <span className='text-sm'>{item.title}</span>
-                </div>
+                </Link>
                 )
               }
            

@@ -1,9 +1,8 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState,useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch,faAlignLeft,faBell,faMaximize,faGlobe,faUserPlus,faAlignRight,faCompress} from '@fortawesome/free-solid-svg-icons';
 
 import { SideBarContext } from '../../App';
-import { useRef } from 'react';
 import useClickoutside from '../../helpers/useClickOutSide';
 import ProfileMain from '../Profile/ProfileMain';
 const Topheader = () => {
@@ -77,7 +76,7 @@ const Topheader = () => {
                 rightSideIcon.map((item,index)=>
                 <div className='flex items-center justify-center w-12 h-12  cursor-pointer ' key={index}>
                 {
-                    item.icon===faMaximize? document.fullscreenElement? <FontAwesomeIcon icon={faCompress} onClick={f11}/> : <FontAwesomeIcon icon={faMaximize} onClick={f11}/> :item.icon===faUserPlus ?<FontAwesomeIcon icon={item?.icon} onClick={()=>setShowProfileMenu(!showProfileMenu)} ref={profileMenuRef}/>: <FontAwesomeIcon icon={item.icon} />
+                    item.icon===faMaximize? document.fullscreenElement? <FontAwesomeIcon icon={faCompress} onClick={f11}/> : <FontAwesomeIcon icon={faMaximize} onClick={f11}/> :item.icon===faUserPlus ?<FontAwesomeIcon icon={item?.icon} onClick={()=>setShowProfileMenu(!showProfileMenu)} />: <FontAwesomeIcon icon={item.icon} />
                 }
             </div>
                 )
@@ -85,7 +84,7 @@ const Topheader = () => {
             {/* --------map right side header icon------------- */}
             {/* --------profile menu------------- */}
             {
-                showProfileMenu?<div className='absolute top-16 right-0 w-50  bg-white shadow-md '>
+                showProfileMenu?<div className='absolute top-16 right-0 w-50  bg-white shadow-md 'ref={profileMenuRef}>
                     <ProfileMain/>
                 </div>:null
             }
