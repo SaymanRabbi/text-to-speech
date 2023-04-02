@@ -4,8 +4,10 @@ import apple from '../../img/apple.png'
 import login from '../../img/login.svg'
 import CopyRight from '../AudioResult/CopyRight';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const Register = () => {
+    const [checked, setChecked] = useState(true)
     return (
         <section className=' bg-[#F9FAFB]'>
         <div className=' grid grid-cols-12 md:py-24 py-16 md:px-28 px-5 gap-10'>
@@ -59,12 +61,12 @@ const Register = () => {
                 Sign Up with Apple
             </div>
             <div className='mt-5 flex gap-3 text-gray-600'>
-               <input type="checkbox" className='h-8 p-2'/>
+               <input type="checkbox" className='h-8 p-2' onClick={()=>setChecked(!checked)}/>
                <p>By signing up, you are creating a Flowbite account, and you agree to Flowbite’s <span className='text-blue-500'>Terms of Use</span> and <span className='text-blue-500'>Privacy Policy</span>.</p>
             </div>
-            <div className='mt-10 h-12 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-700 cursor-pointer flex items-center justify-center'>
+            <button type='button' className={`mt-10 h-12 w-full rounded-lg bg-blue-600 text-white font-bold cursor-pointer flex items-center justify-center ${checked?'cursor-not-allowed bg-gray-300':null}`}>
                  Create An Account
-            </div>
+            </button>
           </div>
           <div className=' lg:col-span-6 col-span-12 flex justify-center items-center lg:order-2 order-1 p-8'>
               <img src={login} className='w-full bg-cover h-full'/>
