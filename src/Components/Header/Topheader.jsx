@@ -85,7 +85,7 @@ const Topheader = () => {
             {/* --------map right side header icon------------- */}
             {/* --------profile menu------------- */}
             {
-                showProfileMenu?<div className='absolute top-16 right-0 w-42 h-100 bg-white shadow-md '>
+                showProfileMenu?<div className='absolute top-16 right-0 w-50  bg-white shadow-md '>
                     <ProfileMain/>
                 </div>:null
             }
