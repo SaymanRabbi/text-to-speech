@@ -49,7 +49,7 @@ const Login = () => {
                <p className='text-sm lg:text-base'>Remember Me</p>
                </div>
                <div>
-                 <Link to={'/forgotpass'} className='text-blue-600 font-bold text-sm lg:text-base'>Forgot password?</Link>
+                 <Link to={'/forgotpassword'} className='text-blue-600 font-bold text-sm lg:text-base'>Forgot password?</Link>
                </div>
             </div>
             <div className='mt-10 h-12 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-700 cursor-pointer flex items-center justify-center'>

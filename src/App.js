@@ -16,6 +16,7 @@ import Support from './Pages/Support/Support';
 import Notification from './Pages/Notification/Notification';
 import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login';
+import ForgotPasssword from './Pages/ForgotPassword/ForgotPasssword';
 export const SideBarContext = createContext();
 function App() {
   // ------Get path name from url------
@@ -48,7 +49,7 @@ useEffect(() => {
     <div className="App">
      <SideBarContext.Provider value={{sideBar, setSideBar,screenSize}}>
        {
-        pathName !== '/login' && pathName !== '/register' ? <>
+        pathName !== '/login' && pathName !== '/register' && pathName !== '/forgotpassword' ? <>
         <Header />
         <Sidebar />
         </> : null
@@ -68,6 +69,7 @@ useEffect(() => {
         </Route>
         <Route path='/register' element={<Register/>} />
         <Route path='/login' element={<Login/>} />
+        <Route path='/forgotpassword' element={<ForgotPasssword/>} />
       </Routes>
       </SideBarContext.Provider>
     </div>
