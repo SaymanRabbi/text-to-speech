@@ -10,7 +10,7 @@ const Register = () => {
     const [checked, setChecked] = useState(true)
     return (
         <section className=' bg-[#F9FAFB] w-full'>
-        <div className=' grid grid-cols-12 md:pt-24 md:pb-8 md:px-28 px-5 lg:gap-10'>
+        <div className=' grid grid-cols-12 md:pt-20 md:pb-8 md:px-28 px-5 lg:gap-10'>
           <div className=' lg:col-span-6 col-span-12 p-6 shadow-lg rounded-md bg-white lg:order-1 order-2 w-full'>
             <h2 className=' font-bold text-2xl mb-2'>
             Create your Account
@@ -62,7 +62,7 @@ const Register = () => {
             </div>
             <div className='mt-5 flex gap-3 text-gray-600'>
                <input type="checkbox" className='h-8 p-2' onClick={()=>setChecked(!checked)}/>
-               <p>By signing up, you are creating a Flowbite account, and you agree to Flowbite’s <span className='text-blue-500'>Terms of Use</span> and <span className='text-blue-500'>Privacy Policy</span>.</p>
+               <p>By signing up, you are creating a text-to-speech account, and you agree to text-to-speech <span className='text-blue-500'>Terms of Use</span> and <span className='text-blue-500'>Privacy Policy</span>.</p>
             </div>
             <button type='button' className={`mt-10 h-12 w-full rounded-lg bg-blue-600 text-white font-bold cursor-pointer flex items-center justify-center ${checked?'cursor-not-allowed bg-gray-300':null}`}>
                  Create An Account

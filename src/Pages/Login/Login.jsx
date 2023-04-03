@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Login = () => {
     return (
        <section className=' bg-[#F9FAFB] w-full'>
-        <div className=' grid grid-cols-12 md:pt-24 md:pb-8 pt-16 md:px-28 px-5 lg:gap-10'>
+        <div className=' grid grid-cols-12 md:pt-20 md:pb-8 pt-16 md:px-28 px-5 lg:gap-10'>
           <div className=' lg:col-span-6 col-span-12 px-8 py-20 shadow-lg rounded-md bg-white lg:order-1 order-2 w-full'>
             <h2 className=' font-bold text-2xl mb-2'>
             Login your Account
