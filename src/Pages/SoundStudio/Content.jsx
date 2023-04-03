@@ -41,7 +41,7 @@ const Content = () => {
                     Select Backround Music
                     </label>
                     <div className='gap-3 grid lg:grid-cols-2 grid-cols-1'>
-                    <select className='p-3 shadow-lg w-full'>
+                    <select className='bg-white p-3 shadow-lg w-full'>
                         <option defaultValue=''>Background Music</option>
                         <option value="saab">Saab</option>
                         <option value="mercedes">Mercedes</option>
@@ -56,7 +56,7 @@ const Content = () => {
                     Set Background Music Volume
                     </label>
                     <div className='gap-3 flex'>
-                    <select className='p-3 shadow-lg w-full'>
+                    <select className='bg-white p-3 shadow-lg w-full'>
                         <option defaultValue=''>Defult</option>
                         <option value="saab">Loud</option>
                         <option value="mercedes">Medium</option>
@@ -71,7 +71,7 @@ const Content = () => {
                     Set Final Result Volume
                     </label>
                     <div className='gap-3 flex'>
-                    <select className='p-3 shadow-lg w-full'>
+                    <select className='bg-white p-3 shadow-lg w-full'>
                         <option defaultValue=''>Defult</option>
                         <option value="saab">Loud</option>
                         <option value="mercedes">Medium</option>

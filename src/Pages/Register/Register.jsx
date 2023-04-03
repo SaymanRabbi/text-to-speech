@@ -33,7 +33,7 @@ const Register = () => {
                     <div>
                     <label className='text-sm font-bold text-gray-700'>Country</label>
                      
-                    <select className=' w-full border-2 border-gray-300 rounded-md p-2 mt-2 outline-none  focus:border-blue-500 bg-[#F9FAFB]'>
+                    <select className='bg-white  w-full border-2 border-gray-300 rounded-md p-2 mt-2 outline-none  focus:border-blue-500 bg-[#F9FAFB]'>
                         <option value="Bangladesh">Bangladesh</option>
                         <option value="India">India</option>
                         <option value="Pakistan">Pakistan</option>

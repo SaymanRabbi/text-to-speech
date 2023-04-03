@@ -11,7 +11,7 @@ const AllVoiceContainer = () => {
             </div>
             <div className='bg-white p-4 md:p-10 shadow-md rounded-md'>
                <div>
-                 <select  className=' w-full p-2 border'>
+                 <select  className='bg-white w-full p-2 border'>
                      <option> <img src="" alt="" />English (USA)</option>
                      <option> <img src="" alt="" />English (USA)</option>
                      <option> <img src="" alt="" />English (USA)</option>
