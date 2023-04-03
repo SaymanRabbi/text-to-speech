@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const FindAccount = () => {
     return (
-        <div className=' h-[80vh] flex justify-center items-center'>
+        <div className=' h-[80vh] flex justify-center items-center px-3'>
             <div className='p-4 w-[570px] shadow-lg rounded-md bg-[#FFFFFF]'>
                   <h1 className='text-2xl'>Find Your Account</h1>
                   <hr  className='my-4'/>
