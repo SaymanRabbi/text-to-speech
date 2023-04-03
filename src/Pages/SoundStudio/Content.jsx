@@ -1,8 +1,14 @@
 import { faPhotoFilm,faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React from 'react';
+import React, { useRef } from 'react';
 
 const Content = () => {
+    // make a button for upload music file
+    const refuploadfile = useRef(null)
+    const handleUploadFile = () => {
+        refuploadfile.current.click()
+    }
+    
     return (
         <div>
             <div className='flex gap-2 items-center'>
@@ -28,9 +34,10 @@ const Content = () => {
                     ]
                 </h2>
                 <div className='mt-5 flex justify-center'>
+                    <input type="file" className='hidden' ref={refuploadfile}/>
                 <button className='
                 hover:bg-blue-600 p-4 shadow-lg hover:text-white font-bold
-                '>
+                ' onClick={()=>handleUploadFile()}>
                     Upload Music File
                 </button>
                 </div>
@@ -41,7 +48,7 @@ const Content = () => {
                     Select Backround Music
                     </label>
                     <div className='gap-3 grid lg:grid-cols-2 grid-cols-1'>
-                    <select className='bg-white p-3 shadow-lg w-full'>
+                    <select className='p-3 shadow-lg w-full bg-white'>
                         <option defaultValue=''>Background Music</option>
                         <option value="saab">Saab</option>
                         <option value="mercedes">Mercedes</option>
@@ -56,7 +63,7 @@ const Content = () => {
                     Set Background Music Volume
                     </label>
                     <div className='gap-3 flex'>
-                    <select className='bg-white p-3 shadow-lg w-full'>
+                    <select className='p-3 shadow-lg w-full bg-white'>
                         <option defaultValue=''>Defult</option>
                         <option value="saab">Loud</option>
                         <option value="mercedes">Medium</option>
@@ -71,7 +78,7 @@ const Content = () => {
                     Set Final Result Volume
                     </label>
                     <div className='gap-3 flex'>
-                    <select className='bg-white p-3 shadow-lg w-full'>
+                    <select className='p-3 shadow-lg w-full bg-white'>
                         <option defaultValue=''>Defult</option>
                         <option value="saab">Loud</option>
                         <option value="mercedes">Medium</option>
