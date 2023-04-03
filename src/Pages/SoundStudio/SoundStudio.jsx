@@ -10,7 +10,7 @@ const SoundStudio = () => {
     const sidebar = useContext(SideBarContext)
     return (
         <div className={`${sidebar.sideBar?sidebar.sideBar&&sidebar.screenSize.dynamicWidth<640 ?'w-[70%] top-0 z-40':'w-[95%]':'lg:w-[84%] sm:w-[70%] w-full'}  bg-[#F5F9FC] ml-auto mt-8`}>
-        <div className='p-100'>
+        <div className='p-10'>
         <Heading icon={faPhotoFilm} tittle={'My Sound Studio'} subhedding={'Sound Studio'}/>
         <div className='bg-white p-10 shadow-md rounded-md'>
             <Content/>
