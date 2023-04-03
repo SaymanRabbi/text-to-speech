@@ -16,17 +16,19 @@ const ChangesPass = () => {
     const [showPass,setShowPass] = useState(false)
     const [showPass1,setShowPass1] = useState(false)
     // ------show pass------
-    const passwordChange = (e) => {
-        e.preventDefault()
+    const passwordChange = () => {
         if(pass !== confirmPass){
             setError('Password not match')
-        }else{
-            setError('')
-            // setup func here 
-            navigate('/login')
-        }
+        }if(pass ==='' || confirmPass ===''){
+            setError('Password is required')
     }
-    // ------pass change------
+    else{
+        setError('')
+        // setup func here 
+        navigate('/login')
+        // ------pass change------
+    }
+}
 
     return (
         <div className=' h-[85vh] flex justify-center items-center px-3'>
@@ -36,21 +38,25 @@ const ChangesPass = () => {
               <p>
               Pick a strong password
               </p>
-             <form onChange={(e)=>passwordChange(e)}>
-             <div className='flex justify-center items-center mt-3 relative'>
-                    <input type={`${showPass?'text':'password'}`} className={`w-[70%] border-2 border-gray-300 rounded-md p-3 mt-2 outline-none  ${error ?'border-red-500':'focus:border-blue-500'} bg-[#F9FAFB]`}  placeholder='New Password' onKeyPress={(e)=>setPass(e.target.value)}/>
+             <form onSubmit={(e)=>e.preventDefault()}>
+            {/* ===========password========= */}
+            <div className='flex justify-center items-center mt-3 relative'>
+                    <input type={`${showPass?'text':'password'}`} className={`w-[70%] border-2 border-gray-300 rounded-md p-3 mt-2 outline-none  ${error ||pass !== confirmPass ?'border-red-500':'focus:border-blue-500'} bg-[#F9FAFB]`}  placeholder='New Password' onChange={(e)=>setPass(e.target.value)} required/>
                     <FontAwesomeIcon icon={showPass ? faEye : faEyeSlash} className='absolute right-[17%] top-6 text-gray-400 cursor-pointer' onClick={()=>setShowPass(!showPass)}/>
               </div>
-              <div className='flex justify-center items-center mt-3 relative'>
-              <input type={`${showPass1?'text':'password'}`} className={`w-[70%] border-2 border-gray-300 rounded-md p-3 mt-2 outline-none  ${error ?'border-red-500':'focus:border-blue-500'} bg-[#F9FAFB]`}  placeholder='New Password' onKeyPress={(e)=>setConfirmPass(e.target.value)}/>
+            {/* ===========password========= */}
+             {/* ==========Reset Pass======= */}
+             <div className='flex justify-center items-center mt-3 relative'>
+              <input type={`${showPass1?'text':'password'}`} className={`w-[70%] border-2 border-gray-300 rounded-md p-3 mt-2 outline-none  ${error ||pass !== confirmPass ?'border-red-500':'focus:border-blue-500'} bg-[#F9FAFB]`}  placeholder='New Password' onChange={(e)=>setConfirmPass(e.target.value)} required/>
                     <FontAwesomeIcon icon={showPass1 ? faEye : faEyeSlash} className='absolute right-[17%] top-6 text-gray-400 cursor-pointer' onClick={()=>setShowPass1(!showPass1)}/>
               </div>
+             {/* ==========Reset Pass======= */}
               <hr  className='my-4'/>
               <div className=' flex justify-end items-center gap-4'>
                        <Link to='/login' className='py-2 px-5 font-medium rounded-md bg-gray-300'>
                         Cancel
                        </Link>
-                       <button className='py-2 px-5 font-medium rounded-md bg-blue-600 text-white' type='submit'>
+                       <button className='py-2 px-5 font-medium rounded-md bg-blue-600 text-white' onClick={()=>passwordChange()}>
                         Continue
                        </button>
               </div>

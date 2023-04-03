@@ -14,7 +14,7 @@ const ResetPass = ({setTest}) => {
                    <div className=' w-full'>
                     <p className=' text-gray-600'>How do you want to receive the code to reset your password?</p>
                     <div className=' flex items-center'>
-                        <input type="radio" name='reset' id='reset1' className='mr-2' checked/>
+                        <input type="radio" name='reset' id='reset1' className='mr-2' defaultChecked/>
                          <div>
                             <p className='block text-sm text-gray-600'>Send code via email</p>
                             <p className=' block text-sm text-gray-600'>testemail@gmail.com</p>

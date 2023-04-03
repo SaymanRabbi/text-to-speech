@@ -44,7 +44,6 @@ useEffect(() => {
  useEffect(() => {
    setPathName(path)
  }, [path])
- console.log(pathName)
   return (
     <div className="App">
      <SideBarContext.Provider value={{sideBar, setSideBar,screenSize}}>
