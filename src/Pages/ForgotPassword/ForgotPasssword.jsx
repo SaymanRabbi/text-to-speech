@@ -4,6 +4,7 @@ import CopyRight from '../AudioResult/CopyRight';
 import { Link } from 'react-router-dom';
 import logo from '../../img/logo.png'
 import { useState } from 'react';
+import ResetPass from './ResetPass';
 const ForgotPasssword = () => {
     const [test,setTest] = useState(0)
     return (
@@ -16,7 +17,9 @@ const ForgotPasssword = () => {
                             Login
                            </Link>
             </div>
-            <FindAccount/>
+            {
+                test === 0?<FindAccount setTest={setTest}/> : <ResetPass/>
+            }
             <CopyRight/>
         </div>
     );
