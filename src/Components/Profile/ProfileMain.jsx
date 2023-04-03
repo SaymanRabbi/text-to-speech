@@ -30,7 +30,7 @@ const ProfileMain = () => {
         },{
             icon: faKey,
             title: 'Changes Password',
-            link:'/changespass'
+            link:'/forgotpassword'
         },{
             icon: faArrowUp,
             title: 'Logout',
