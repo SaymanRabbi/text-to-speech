@@ -12,7 +12,7 @@ const firebaseConfig = {
   messagingSenderId: process.env.REAT_APP_appId,
   appId: process.env.REAT_APP_messagingSenderId
 };
-
+// git check
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
