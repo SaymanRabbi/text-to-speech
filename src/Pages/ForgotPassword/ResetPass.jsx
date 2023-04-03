@@ -6,7 +6,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 const ResetPass = ({setTest}) => {
     return (
-        <div className=' h-[80vh] flex justify-center items-center px-3'>
+        <div className=' h-[85vh] flex justify-center items-center px-3'>
         <div className='p-4 w-[570px] shadow-lg rounded-md bg-[#FFFFFF]'>
               <h1 className='text-2xl'>Reset Your Password</h1>
               <hr  className='my-6'/>

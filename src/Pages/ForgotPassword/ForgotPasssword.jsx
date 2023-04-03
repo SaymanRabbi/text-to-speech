@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../img/logo.png'
 import { useState } from 'react';
 import ResetPass from './ResetPass';
+import CodeVerify from './CodeVerify';
 const ForgotPasssword = () => {
     const [test,setTest] = useState(0)
     return (
@@ -18,7 +19,7 @@ const ForgotPasssword = () => {
                            </Link>
             </div>
             {
-                test === 0?<FindAccount setTest={setTest}/> : <ResetPass/>
+                test === 0?<FindAccount setTest={setTest}/> : test === 1?<ResetPass setTest={setTest}/> : <CodeVerify setTest={setTest}/>
             }
             <CopyRight/>
         </div>
