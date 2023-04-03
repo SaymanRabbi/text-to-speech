@@ -10,9 +10,9 @@ import ChangesPass from './ChangesPass';
 const ForgotPasssword = () => {
     const [test,setTest] = useState(0)
     return (
-        <div className=' bg-[#F0F2F5] relative'>
+        <div className=' bg-[#F0F2F5]'>
             {/* ------header-------- */}
-            <div className='fixed top-0 w-full p-3 flex justify-between items-center shadow-lg bg-[#FFFFFF]'>
+            <div className='h-[85px] top-0 w-full p-3 flex justify-between items-center shadow-lg bg-[#FFFFFF]'>
               <img src={logo} alt="" className=' w-28 h-full' />
             {/* ------header-------- */}
               <Link to='/login' className='py-2 px-5 font-medium rounded-md bg-blue-600 text-white'>
