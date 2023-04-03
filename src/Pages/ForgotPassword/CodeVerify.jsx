@@ -18,7 +18,7 @@ const CodeVerify = ({setTest}) => {
                        <Link to='/login' className='py-2 px-5 font-medium rounded-md bg-gray-300'>
                         Cancel
                        </Link>
-                       <button className='py-2 px-5 font-medium rounded-md bg-blue-600 text-white' onClick={()=>setTest(1)}>
+                       <button className='py-2 px-5 font-medium rounded-md bg-blue-600 text-white' onClick={()=>setTest(3)}>
                         Continue
                        </button>
               </div>

@@ -6,6 +6,7 @@ import logo from '../../img/logo.png'
 import { useState } from 'react';
 import ResetPass from './ResetPass';
 import CodeVerify from './CodeVerify';
+import ChangesPass from './ChangesPass';
 const ForgotPasssword = () => {
     const [test,setTest] = useState(0)
     return (
@@ -19,7 +20,7 @@ const ForgotPasssword = () => {
                            </Link>
             </div>
             {
-                test === 0?<FindAccount setTest={setTest}/> : test === 1?<ResetPass setTest={setTest}/> : <CodeVerify setTest={setTest}/>
+                test === 0?<FindAccount setTest={setTest}/> : test === 1?<ResetPass setTest={setTest}/> : test===2?<CodeVerify setTest={setTest}/>: test === 3?<ChangesPass setTest={setTest}/>:null
             }
             <CopyRight/>
         </div>
