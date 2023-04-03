@@ -1,10 +1,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { faEyeSlash,faEye } from '@fortawesome/free-solid-svg-icons';
 
 const ChangesPass = () => {
+    // --------navigator-------
+    const navigate = useNavigate()
+    // --------navigator-------
     // ------pass change------
     const [pass,setPass] = useState('')
     const [confirmPass,setConfirmPass] = useState('')
@@ -17,9 +20,10 @@ const ChangesPass = () => {
         e.preventDefault()
         if(pass !== confirmPass){
             setError('Password not match')
-            // setup func here 
         }else{
             setError('')
+            // setup func here 
+            navigate('/login')
         }
     }
     // ------pass change------
@@ -38,19 +42,19 @@ const ChangesPass = () => {
                     <FontAwesomeIcon icon={showPass ? faEye : faEyeSlash} className='absolute right-[17%] top-6 text-gray-400 cursor-pointer' onClick={()=>setShowPass(!showPass)}/>
               </div>
               <div className='flex justify-center items-center mt-3 relative'>
-              <input type={`${showPass1?'text':'password'}`} className={`w-[70%] border-2 border-gray-300 rounded-md p-3 mt-2 outline-none  ${error ?'border-red-500':'focus:border-blue-500'} bg-[#F9FAFB]`}  placeholder='New Password' onKeyPress={(e)=>setPass(e.target.value)}/>
+              <input type={`${showPass1?'text':'password'}`} className={`w-[70%] border-2 border-gray-300 rounded-md p-3 mt-2 outline-none  ${error ?'border-red-500':'focus:border-blue-500'} bg-[#F9FAFB]`}  placeholder='New Password' onKeyPress={(e)=>setConfirmPass(e.target.value)}/>
                     <FontAwesomeIcon icon={showPass1 ? faEye : faEyeSlash} className='absolute right-[17%] top-6 text-gray-400 cursor-pointer' onClick={()=>setShowPass1(!showPass1)}/>
               </div>
-             </form>
               <hr  className='my-4'/>
               <div className=' flex justify-end items-center gap-4'>
                        <Link to='/login' className='py-2 px-5 font-medium rounded-md bg-gray-300'>
                         Cancel
                        </Link>
-                       <button className='py-2 px-5 font-medium rounded-md bg-blue-600 text-white'>
+                       <button className='py-2 px-5 font-medium rounded-md bg-blue-600 text-white' type='submit'>
                         Continue
                        </button>
               </div>
+             </form>
         </div>
     </div>
     );
