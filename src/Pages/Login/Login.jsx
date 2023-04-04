@@ -8,8 +8,11 @@ import { useSendEmailVerification, useSignInWithEmailAndPassword } from 'react-f
 import { auth } from '../../firebase.init';
 import { toast } from 'react-hot-toast';
 const Login = () => {
+    // -------set error message-------
     const naviagate = useNavigate()
-    const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword,user,
+        loading,
+        error] = useSignInWithEmailAndPassword(auth);
     const [sendEmailVerification] = useSendEmailVerification( auth);
      const loginFunc = (e) => {
         e.preventDefault()
@@ -17,16 +20,18 @@ const Login = () => {
         const password = e.target.password.value
         signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-           if(userCredential.user.emailVerified){
+           if(userCredential?.user?.emailVerified){
             naviagate('/')
         }
-        else{
-            toast.error('Please verify your email first then try again')
+       if(!userCredential?.user?.emailVerified && userCredential?.user?.emailVerified !== undefined){
+        toast.error('Please verify your email first then try again')
             sendEmailVerification()
-        }
+        };
     })
-
+    if(error){
+        toast.error('Something went wrong')
      }
+}
     return (
        <section className=' bg-[#F9FAFB] w-full'>
         <div className=' grid grid-cols-12 md:pt-20 md:pb-8 pt-16 md:px-28 px-5 lg:gap-10'>
@@ -41,13 +46,13 @@ const Login = () => {
                 <div className='mt-4 grid grid-cols-1'>
                     <div>
                     <label className='text-sm font-bold text-gray-700'>Your Email</label>
-                    <input type="text" name='email' className=' w-full border-2 border-gray-300 rounded-md p-2 mt-2 outline-none  focus:border-blue-500 bg-[#F9FAFB]' placeholder='Your Full Name...'/>
+                    <input type="text" name='email' className=' w-full border-2 border-gray-300 rounded-md p-2 mt-2 outline-none  focus:border-blue-500 bg-[#F9FAFB]' placeholder='Your Full Name...' required/>
                     </div>
                 </div>
                 <div className='mt-4 grid grid-cols-1'>
                     <div>
                     <label className='text-sm font-bold text-gray-700'>Password</label>
-                    <input type="password" name='password' className=' w-full border-2 border-gray-300 rounded-md p-2 mt-2 outline-none  focus:border-blue-500 bg-[#F9FAFB]' placeholder='Your Password...'/>
+                    <input type="password" name='password' className=' w-full border-2 border-gray-300 rounded-md p-2 mt-2 outline-none  focus:border-blue-500 bg-[#F9FAFB]' placeholder='Your Password...' required/>
                     </div>
                 </div>
             
@@ -75,7 +80,9 @@ const Login = () => {
             </div>
             <div>
             <button className='mt-10 w-full h-12 rounded-lg bg-blue-600 text-white font-bold hover:bg-blue-700 cursor-pointer flex items-center justify-center' type='submit'>
-                 Login Your Account
+                 {
+                        loading ? <div className='animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white'></div> : 'Login Your Account'
+                 }
             </button>
             </div>
             </form>
