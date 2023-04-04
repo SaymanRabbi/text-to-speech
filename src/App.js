@@ -17,6 +17,8 @@ import Notification from './Pages/Notification/Notification';
 import Register from './Pages/Register/Register';
 import Login from './Pages/Login/Login';
 import ForgotPasssword from './Pages/ForgotPassword/ForgotPasssword';
+import { Toaster } from 'react-hot-toast';
+
 export const SideBarContext = createContext();
 function App() {
   // ------Get path name from url------
@@ -70,6 +72,7 @@ useEffect(() => {
         <Route path='/login' element={<Login/>} />
         <Route path='/forgotpassword' element={<ForgotPasssword/>} />
       </Routes>
+      <Toaster   position="top-right" reverseOrder={false}/>
       </SideBarContext.Provider>
     </div>
   );
