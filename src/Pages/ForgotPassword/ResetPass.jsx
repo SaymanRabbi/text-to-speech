@@ -1,10 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { auth } from '../../firebase.init';
+import { useSendPasswordResetEmail } from 'react-firebase-hooks/auth';
+import { toast } from 'react-hot-toast';
 
 
-const ResetPass = ({setTest}) => {
+const ResetPass = ({user}) => {
+    const [sendPasswordResetEmail] = useSendPasswordResetEmail( auth);
+    const navigate = useNavigate()
+    const resetPassFunc =async () => {
+            await sendPasswordResetEmail(user?.email)
+             toast.success('Reset Password Link Sent Successfully')
+             setTimeout(() => {
+                navigate('/login')
+             }, 2000);
+    }
     return (
         <div className=' h-[85vh] flex justify-center items-center px-3'>
         <div className='p-4 w-[570px] shadow-lg rounded-md bg-[#FFFFFF]'>
@@ -17,7 +29,7 @@ const ResetPass = ({setTest}) => {
                         <input type="radio" name='reset' id='reset1' className='mr-2' defaultChecked/>
                          <div>
                             <p className='block text-sm text-gray-600'>Send code via email</p>
-                            <p className=' block text-sm text-gray-600'>testemail@gmail.com</p>
+                            <p className=' block text-sm text-gray-600'>{user?.email}</p>
                          </div>
                      </div>
                    </div>
@@ -26,7 +38,7 @@ const ResetPass = ({setTest}) => {
                        <div className=' w-20 h-20 rounded-full border-2 border-blue-600 flex items-center justify-center'>
                        <FontAwesomeIcon icon={faUser} className='text-4xl text-blue-600'/>
                        </div>
-                       <p className=' text-sm text-gray-600 mt-2'>testemail@gmail.com</p>
+                       <p className=' text-sm text-gray-600 mt-2'>{user?.email}</p>
                        </div>
                    </div>
               </div>
@@ -35,7 +47,7 @@ const ResetPass = ({setTest}) => {
                        <Link to='/login' className='py-2 px-5 font-medium rounded-md bg-gray-300'>
                         Not You?
                        </Link>
-                       <button className='py-2 px-5 font-medium rounded-md bg-blue-600 text-white' onClick={()=>setTest(2)}>
+                       <button className='py-2 px-5 font-medium rounded-md bg-blue-600 text-white' onClick={()=>resetPassFunc()}>
                         Continue
                        </button>
               </div>

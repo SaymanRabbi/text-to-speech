@@ -19,6 +19,9 @@ import { Toaster } from 'react-hot-toast';
 
 export const SideBarContext = createContext();
 function App() {
+  // ======get input value and save=====
+  
+  // ======get input value and save=====
   // ------Get path name from url------
    const path = useLocation().pathname
    const [pathName, setPathName] = useState(path);
@@ -59,7 +62,7 @@ useEffect(() => {
           <Route path='/support' element={<Support/>} />
           <Route path='/notification' element={<Notification/>} />
         </Route>
-        <Route path='/register' element={<Register/>} />
+        <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login/>} />
         <Route path='/forgotpassword' element={<ForgotPasssword/>} />
       </Routes>

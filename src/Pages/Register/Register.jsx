@@ -12,9 +12,9 @@ import { addDoc, collection } from 'firebase/firestore';
 
 const Register = () => {
     const navigate = useNavigate();
-    const [signInWithGoogle,googleuser, loading, error] = useSignInWithGoogle(auth)
+    const [signInWithGoogle,googleuser, loading] = useSignInWithGoogle(auth)
     // create user
-    const [createUserWithEmailAndPassword,user] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword,user,loading2,error] = useCreateUserWithEmailAndPassword(auth);
     //   ----send email verification-------
     const [sendEmailVerification] = useSendEmailVerification( auth);
     //   ----send email verification-------
@@ -28,25 +28,27 @@ const Register = () => {
         const data ={
             name,
             email,
-            password,
             country
         }
         // create new user and store in firebase
+        if(error){
+            toast.error('Something went wrong email already exist') 
+            return
+        }
         createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
             // Signed in 
-            (!userCredential.user.emailVerified) && sendEmailVerification()
-            
+            (!userCredential?.user?.emailVerified) && sendEmailVerification()
+            toast.success('Email verification sent! please check your email')
+            navigate('/login')
 
            
             // ...
             // send email verification
-            .then(() => {
-                // Email verification sent!
+            
                 // ...
-               toast.success('Email verification sent! please check your email')
-                navigate('/login')
-            });
+             
+            
         })
         try {
             await addDoc(collection(db, "users"), data)
@@ -57,9 +59,13 @@ const Register = () => {
     }
     // ------sign in with google--------
     const signInWithGooglefunc =async () => {
-        await signInWithGoogle()
-         try {
-            console.log(googleuser)
+        
+        try {
+             signInWithGoogle()
+            if(googleuser){
+
+                navigate('/')
+            }
          } catch (error) {
             
          }

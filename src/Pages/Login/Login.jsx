@@ -7,35 +7,44 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useSendEmailVerification, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase.init';
 import { toast } from 'react-hot-toast';
+import { useEffect } from 'react';
+
 const Login = () => {
-    const [signInWithGoogle,googleuser, googleloading, goggleerror] = useSignInWithGoogle(auth)
+    const [signInWithGoogle,googleuser] = useSignInWithGoogle(auth)
     // -------set error message-------
     const naviagate = useNavigate()
     const [signInWithEmailAndPassword,user,loading,error] = useSignInWithEmailAndPassword(auth);
     const [sendEmailVerification] = useSendEmailVerification( auth);
-     const loginFunc = (e) => {
+    useEffect(()=>{
+        if(error?.message?.includes('Error')){
+
+            toast.error('Wrong Credentials')    
+        }
+    },[error])
+     const loginFunc = async(e) => {
         e.preventDefault()
         const email = e.target.email.value
         const password = e.target.password.value
+        
         signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
            if(userCredential?.user?.emailVerified){
             naviagate('/')
+            
         }
        if(!userCredential?.user?.emailVerified && userCredential?.user?.emailVerified !== undefined){
         toast.error('Please verify your email first then try again')
             sendEmailVerification()
         };
     })
-    if(error){
-        toast.error('Something went wrong')
-     }
 }
 // =====sign in with google=====
 const signInWithGooglefunc =async () => {
-    await signInWithGoogle()
-     try {
-        console.log(googleuser)
+    try {
+         signInWithGoogle()
+        if(googleuser){
+            naviagate('/')
+        }
      } catch (error) {
         
      }

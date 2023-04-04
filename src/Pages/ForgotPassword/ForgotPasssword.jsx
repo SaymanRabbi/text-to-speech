@@ -9,6 +9,8 @@ import CodeVerify from './CodeVerify';
 import ChangesPass from './ChangesPass';
 const ForgotPasssword = () => {
     const [test,setTest] = useState(0)
+    const [user,setUser] = useState()
+    console.log(user)
     return (
         <div className=' bg-[#F0F2F5]'>
             {/* ------header-------- */}
@@ -22,7 +24,7 @@ const ForgotPasssword = () => {
                            </Link>
             </div>
             {
-                test === 0?<FindAccount setTest={setTest}/> : test === 1?<ResetPass setTest={setTest}/> : test===2?<CodeVerify setTest={setTest}/>: test === 3?<ChangesPass setTest={setTest}/>:null
+                test === 0?<FindAccount setUser={setUser} user={user} setTest={setTest}/> : test === 1?<ResetPass user={user} setTest={setTest}/> : null
             }
             <CopyRight/>
         </div>
