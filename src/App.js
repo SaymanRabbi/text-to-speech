@@ -1,8 +1,6 @@
 
 import { createContext, useEffect, useState } from 'react';
 import './App.css';
-import Header from './Components/Header/Header';
-import Sidebar from './Components/Sidebar/Sidebar';
 import TextToSpeech from './Pages/TextToSpeech/TextToSpeech';
 import { Routes,Route, useLocation } from 'react-router-dom';
 import OutletContainer from './Components/Outlet/OutletContainer';
@@ -49,15 +47,8 @@ useEffect(() => {
   return (
     <div className="App">
      <SideBarContext.Provider value={{sideBar, setSideBar,screenSize}}>
-       {
-        pathName !== '/login' && pathName !== '/register' && pathName !== '/forgotpassword' ? <>
-        <Header />
-        <Sidebar />
-        </> : null
-
-       }
       <Routes>
-        <Route component={<OutletContainer/>} >
+        <Route element={<OutletContainer/>} >
           <Route path="/" element={<TextToSpeech/>} />
           <Route path='/audioresults' element={<AudioResult/>} />
           <Route path='/ttsProject' element={<TtsProject/>} />
@@ -72,7 +63,8 @@ useEffect(() => {
         <Route path='/login' element={<Login/>} />
         <Route path='/forgotpassword' element={<ForgotPasssword/>} />
       </Routes>
-      <Toaster   position="top-right" reverseOrder={false}/>
+      <Toaster   position="top-right"
+  reverseOrder={false}/>
       </SideBarContext.Provider>
     </div>
   );
