@@ -6,19 +6,16 @@ import CopyRight from '../AudioResult/CopyRight';
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { auth, db } from '../../firebase.init';
-import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { toast } from 'react-hot-toast';
 import { addDoc, collection } from 'firebase/firestore';
 
 const Register = () => {
     const navigate = useNavigate();
+    const [signInWithGoogle,googleuser, loading, error] = useSignInWithGoogle(auth)
     // create user
-    const [
-        createUserWithEmailAndPassword,user] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword,user] = useCreateUserWithEmailAndPassword(auth);
     //   ----send email verification-------
-//    -------verify email and redirect home page-------
-
-//    -------verify email and redirect home page-------
     const [sendEmailVerification] = useSendEmailVerification( auth);
     //   ----send email verification-------
     const [checked, setChecked] = useState(true)
@@ -58,6 +55,16 @@ const Register = () => {
         }
 
     }
+    // ------sign in with google--------
+    const signInWithGooglefunc =async () => {
+        await signInWithGoogle()
+         try {
+            console.log(googleuser)
+         } catch (error) {
+            
+         }
+    }
+    // ------sign in with google--------
     return (
         <section className=' bg-[#F9FAFB] w-full'>
         <div className=' grid grid-cols-12 md:pt-20 md:pb-8 md:px-28 px-5 lg:gap-10'>
@@ -102,9 +109,11 @@ const Register = () => {
                  <h2>or</h2>
                 <div className=' w-full border-2 h-0'></div>
             </div>
-            <div className=' h-12 rounded-md border-2 border-gray-300 hover:bg-gray-300  cursor-pointer flex justify-center items-center font-medium '>
+            <div className=' h-12 rounded-md border-2 border-gray-300 hover:bg-gray-300  cursor-pointer flex justify-center items-center font-medium ' onClick={()=>signInWithGooglefunc()}>
                 <img src={google} alt="" className='w-10 h-8' />
-                Sign Up with Google
+                {
+                    loading ? <div className='animate-spin rounded-full h-5 w-5 border-b-2 border-white'></div> : <button>Sign Up with Google</button>
+                }
             </div>
             <div className=' h-12 rounded-md border-2 border-gray-300 hover:bg-gray-300  cursor-pointer flex justify-center items-center font-medium mt-5 gap-1'>
                 <img src={apple} alt="" className='w-8 h-8' />

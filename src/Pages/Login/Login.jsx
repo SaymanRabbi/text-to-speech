@@ -4,15 +4,14 @@ import apple from '../../img/apple.png'
 import login from '../../img/register.webp'
 import CopyRight from '../AudioResult/CopyRight';
 import { Link, useNavigate } from 'react-router-dom';
-import { useSendEmailVerification, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendEmailVerification, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { auth } from '../../firebase.init';
 import { toast } from 'react-hot-toast';
 const Login = () => {
+    const [signInWithGoogle,googleuser, googleloading, goggleerror] = useSignInWithGoogle(auth)
     // -------set error message-------
     const naviagate = useNavigate()
-    const [signInWithEmailAndPassword,user,
-        loading,
-        error] = useSignInWithEmailAndPassword(auth);
+    const [signInWithEmailAndPassword,user,loading,error] = useSignInWithEmailAndPassword(auth);
     const [sendEmailVerification] = useSendEmailVerification( auth);
      const loginFunc = (e) => {
         e.preventDefault()
@@ -32,6 +31,16 @@ const Login = () => {
         toast.error('Something went wrong')
      }
 }
+// =====sign in with google=====
+const signInWithGooglefunc =async () => {
+    await signInWithGoogle()
+     try {
+        console.log(googleuser)
+     } catch (error) {
+        
+     }
+}
+// =====sign in with google=====
     return (
        <section className=' bg-[#F9FAFB] w-full'>
         <div className=' grid grid-cols-12 md:pt-20 md:pb-8 pt-16 md:px-28 px-5 lg:gap-10'>
@@ -61,7 +70,7 @@ const Login = () => {
                  <h2>or</h2>
                 <div className=' w-full border-2 h-0'></div>
             </div>
-            <div className=' h-12 rounded-md border-2 border-gray-300 hover:bg-gray-300  cursor-pointer flex justify-center items-center font-medium '>
+            <div className=' h-12 rounded-md border-2 border-gray-300 hover:bg-gray-300  cursor-pointer flex justify-center items-center font-medium ' onClick={()=>signInWithGooglefunc()}>
                 <img src={google} alt="" className='w-10 h-8' />
                 Sign Up with Google
             </div>

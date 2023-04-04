@@ -13,7 +13,9 @@ const ForgotPasssword = () => {
         <div className=' bg-[#F0F2F5]'>
             {/* ------header-------- */}
             <div className='h-[85px] top-0 w-full p-3 flex justify-between items-center shadow-lg bg-[#FFFFFF]'>
-              <img src={logo} alt="" className=' w-28 h-full' />
+             <Link to={'/'}>
+             <img src={logo} alt="" className=' w-28 h-full' />
+             </Link>  
             {/* ------header-------- */}
               <Link to='/login' className='py-2 px-5 font-medium rounded-md bg-blue-600 text-white'>
                             Login
